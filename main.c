@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int opcion;
+int num;
 
 int main()
 {
@@ -12,7 +13,7 @@ int main()
         char direccion[50];
         char carrera[50];
         float promedio;
-    } alumno1 = {100, "Juan Perez", "Quito", "Software", 5.0};
+    };
 
     printf("Bienvenido al registro de alumnos. Inserta la opción que deseas realizar.\n");
     printf("1. Ingresar datos.\n");
@@ -21,22 +22,29 @@ int main()
 
     do
     {
-        if (opcion==1)
+        if (opcion == 1)
         {
             printf("Ingresar el nombre del estudiante\n");
-            scanf("%s", nombre[50]);
-
-        } else if (opcion == 2) {
-        
-            printf("Datos del alumno:\n");
-            printf("Numero de matricula: %d\n", alumno1.matricula);
-            printf("Nombre: %s\n", alumno1.nombre);
-            printf("Direccion: %s\n", alumno1.direccion);
-            printf("Carrera: %s\n", alumno1.carrera);
-            printf("Promedio: %.2f\n", alumno1.promedio);
-            printf("\n");
         }
-    } while (opcion != 2);
+        else if (opcion == 2)
+        {
+
+            printf("Datos de los alumnos ingresados:\n");
+            for (int i = 0; i < num; ++i)
+            {
+                printf("\nMatrícula: %d\n", alumnos[i].matricula);
+                printf("Nombre: %s\n", alumnos[i].nombre);
+                printf("Dirección: %s\n", alumnos[i].direccion);
+                printf("Carrera: %s\n", alumnos[i].carrera);
+                printf("Promedio: %.2f\n", alumnos[i].promedio);
+            }
+        }
+
+        printf("Elige la opcion a realizar.\n");
+        printf("1. Insertar datos.\n");
+        printf("2. Imprimir los datos.\n");
+        printf("0. Salir.\n");
+    } while (opcion != 0);
 
     return 0;
 }
